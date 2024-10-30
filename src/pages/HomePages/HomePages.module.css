@@ -1,0 +1,15 @@
+.divx{
+    margin-top: 60px;
+    border: 2px solid #303030;
+    border-radius: 20px;
+    width: 650px;
+    line-height: 1.5;
+    background-color: #061c38;
+}
+
+.phome{
+    color: rgb(0, 246, 246);
+}
+.phome:hover{
+    color: rgb(146, 0, 156);
+}

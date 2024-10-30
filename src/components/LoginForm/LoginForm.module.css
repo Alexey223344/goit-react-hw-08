@@ -1,9 +1,10 @@
-.lot {
+.log1 {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 30px;
   max-width: 350px;
   border-radius: 30px;
 
@@ -16,11 +17,11 @@
   opacity: 0.8;
 }
 
-.style{
+.log2 {
   color: aliceblue;
 }
 
-.bot{
+.logbtn {
   background: linear-gradient(
     72deg,
     rgba(51, 48, 247, 1) 0%,
@@ -30,4 +31,3 @@
   color: aliceblue;
   border: 1px solid #0320af;
 }
-

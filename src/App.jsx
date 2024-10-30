@@ -29,13 +29,13 @@ const App = () => {
       ) : (
         <Layout>
           <Routes>
-            <Route path="/" element={<HomePages />} />
+            <Route index element={<HomePages />} />
             <Route
-              path="/register"
+              path="register"
               element={<RestrictedRoute component={<RegistrationPages />} redirectTo="/contacts" />}
             />
             <Route
-              path="/login"
+              path="login"
               element={<RestrictedRoute component={<LoginPages />} redirectTo="/contacts" />}
             />
             <Route

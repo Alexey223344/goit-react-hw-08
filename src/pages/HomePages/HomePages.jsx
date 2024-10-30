@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { NavLink } from "react-router-dom";
+import s from './HomePages.module.css'
 
 const HomePages = () => {
   const login = useSelector(selectIsLoggedIn);
   return (
-    <div>
+    <div className={s.divx}>
       <h1>Welcome your Phonebook!</h1>
       <p>Easy ability to add, delete, edit your contacts.</p>
       {login ? (
@@ -14,7 +15,7 @@ const HomePages = () => {
         </p>
       ) : (
         <p>
-          Get Started <NavLink to="/register">Register</NavLink>or<NavLink to="/login"></NavLink> to access
+          Get Started <NavLink  className={s.phome} to="/register">Register</NavLink>or<NavLink to="/login"></NavLink> to access
           the phone book.
         </p>
       )}

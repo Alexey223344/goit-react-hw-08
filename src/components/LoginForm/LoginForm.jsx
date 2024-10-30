@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations"; //
 import { selectErrors } from "../../redux/auth/selectors"; //
+import s from './LoginForm.module.css'
 const LoginForm = () => {
   const dispatch = useDispatch();
   const errLogins = useSelector(selectErrors); //
@@ -37,8 +38,8 @@ const LoginForm = () => {
       .required("Email is required"),
   });
   return (
-    <div>
-      <h2>Login</h2>
+    <div className={s.log1}>
+      <h2 className={s.log2}>Login</h2>
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={orderSchema}
@@ -47,19 +48,19 @@ const LoginForm = () => {
         <Form>
           <label>
             <div>
-              <p>Login</p>
+              <p className={s.log2}>Login</p>
               <ErrorMessage name="email" component="p" />
             </div>
             <Field name="email" placeholder="your email" />
           </label>
           <label>
             <div>
-              <p>Password</p>
+              <p className={s.log2}>Password</p>
               <ErrorMessage name="password" component="p" />
             </div>
             <Field name="password" placeholder="your password" />
           </label>
-          <button type="submit">Login</button>
+          <button className={s.logbtn} type="submit">Login</button>
         </Form>
       </Formik>
     </div>

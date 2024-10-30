@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import {register} from '../../redux/auth/operations' //
-import s from './RegForm.module.css'
+import { register } from "../../redux/auth/operations"; //
+import s from "./RegForm.module.css";
 const RegForm = () => {
   const dispatch = useDispatch();
   const orderSchema = Yup.object({
@@ -27,35 +27,41 @@ const RegForm = () => {
   };
   return (
     <div className={s.lot}>
-      <h2>Regestration</h2>
-      <Formik initialValues={{name:'', email:'', password:''}} validationSchema={orderSchema} onSubmit={handleRegstr}>
+      <h2 className={s.style}>Regestration</h2>
+      <Formik
+        initialValues={{ name: "", email: "", password: "" }}
+        validationSchema={orderSchema}
+        onSubmit={handleRegstr}
+      >
         <Form>
-            <label>
-                <div>
-                    <p>Name</p>
-                    <ErrorMessage name='name' components='p' />
-                </div>
-            <Field name='name' placeholder='enter name'/>
-            </label>
-            <label>
-                <div>
-                    <p>Email</p>
-                    <ErrorMessage name='email' components='p' />
-                </div>
-            <Field name='email' placeholder='enter email'/>
-            </label>
-            <label>
-                <div>
-                    <p>Password</p>
-                    <ErrorMessage name='password' components='p' />
-                </div>
-            <Field name='password' placeholder='enter password'/>
-            </label>
-            <button type='submit'>Register</button>
+          <label>
+            <div>
+              <p className={s.style}>Name</p>
+              <ErrorMessage name="name" components="p" />
+            </div>
+            <Field name="name" placeholder="enter name" />
+          </label>
+          <label>
+            <div>
+              <p className={s.style}>Email</p>
+              <ErrorMessage name="email" components="p" />
+            </div>
+            <Field name="email" placeholder="enter email" />
+          </label>
+          <label>
+            <div>
+              <p className={s.style}>Password</p>
+              <ErrorMessage name="password" components="p" />
+            </div>
+            <Field name="password" placeholder="enter password" />
+          </label>
+          <button className={s.bot} type="submit">
+            Register
+          </button>
         </Form>
       </Formik>
       <div>
-        <p>To gain access, register</p>
+        <p className={s.style}>To gain access, register</p>
       </div>
     </div>
   );
