@@ -1,0 +1,12 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+}
+
+a {
+  text-decoration: none;
+  color: rgb(46, 2, 244);
+  font-size: 40px;
+}

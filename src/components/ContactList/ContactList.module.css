@@ -1,0 +1,32 @@
+.item {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+  height: 80px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(
+    72deg,
+    rgb(61, 48, 247) 0%,
+    rgba(211, 58, 245, 1) 89%
+  );
+  box-shadow: 0 4px 8px rgba(142, 5, 239, 0.1);
+  opacity: 0.9; 
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  color: aliceblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.item:hover {
+  opacity: 2;
+  box-shadow: 0 8px 16px rgba(142, 5, 239, 0.1);
+}
+.list {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
