@@ -37,14 +37,30 @@ const sliсe = createSlice({
         state.isRefresh = false;
       })
       .addCase(refreshUser.rejected, () => initialState)
-      .addMatcher(isAnyOf(register.pending, login.pending, logout.pending, refreshUser.pending), (state) => {
-        state.error = false;
-      })
-      .addMatcher(isAnyOf(register.rejected, login.rejected, logout.rejected), (state) => {
-        state.error = true;
-      })
       .addMatcher(
-        isAnyOf(register.fulfilled, login.fulfilled, logout.fulfilled, refreshUser.fulfilled),
+        isAnyOf(
+          register.pending,
+          login.pending,
+          logout.pending,
+          refreshUser.pending
+        ),
+        (state) => {
+          state.error = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(register.rejected, login.rejected, logout.rejected),
+        (state) => {
+          state.error = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          register.fulfilled,
+          login.fulfilled,
+          logout.fulfilled,
+          refreshUser.fulfilled
+        ),
         (state) => {
           state.error = false;
         }
