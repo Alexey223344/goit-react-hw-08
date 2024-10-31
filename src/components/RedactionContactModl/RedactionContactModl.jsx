@@ -17,6 +17,7 @@ export const RedactionContactModl = ({ closeModal, user }) => {
       .required("Fill this out is important!"),
   });
   const handleFormsAdd = (values) => {
+    console.log(values);
     dispatch(updateUserContacts({ id: user.id, ...values }));
     closeModal();
   };
@@ -37,13 +38,14 @@ export const RedactionContactModl = ({ closeModal, user }) => {
               <p>Name</p>
               <ErrorMessage name="name" components="p" />
             </div>
-          </label>
           <Field name="name" />
+          </label>
           <label>
             <div>
               <p>Number</p>
               <ErrorMessage name="number" components="p" />
             </div>
+          <Field name="number" />
           </label>
           <button type="submit">Edit!</button>
         </Form>
