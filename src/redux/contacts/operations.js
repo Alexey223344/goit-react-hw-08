@@ -1,12 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { goitApi, setAutchHeaderNew } from "../auth/operations";
+import axios from "axios";
 
+
+
+export const clearAuthHeader = () => {
+  delete axios.defaults.headers.common.Authorization;
+};
 
 export const fetchContacts = createAsyncThunk("contacts/fetchAll", async (_, thunkApi) => {
-  const token = thunkApi.getState().auth.token;
-  setAutchHeaderNew(token);
   try {
-    const { data } = await goitApi.get("/contacts");
+    const { data } = await axios.get("/contacts");
     return data;
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
@@ -16,10 +19,9 @@ export const fetchContacts = createAsyncThunk("contacts/fetchAll", async (_, thu
 export const addUserContacts = createAsyncThunk(
   "contacts/addUserContacts",
   async (newUserContacts, thunkApi) => {
-    const token = thunkApi.getState().auth.token;
-    setAutchHeaderNew(token);
+ 
     try {
-      const { data } = await goitApi.post("/contacts", newUserContacts);
+      const { data } = await axios.post("/contacts", newUserContacts);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -30,10 +32,9 @@ export const addUserContacts = createAsyncThunk(
 export const deleteUserContacts = createAsyncThunk(
   "contacts/deleteUserContacts",
   async (id, thunkApi) => {
-    const token = thunkApi.getState().auth.token;
-    setAutchHeaderNew(token);
+
     try {
-      const { data } = await goitApi.post(`/contacts/${id}`);
+      const { data } = await axios.delete(`/contacts/${id}`);
       return data.id
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -44,13 +45,21 @@ export const deleteUserContacts = createAsyncThunk(
 export const updateUserContacts = createAsyncThunk(
   "contacts/updateUserContacts",
   async ({id, name, number}, thunkApi) => {
-    const token = thunkApi.getState().auth.token;
-    setAutchHeaderNew(token);
+
     try {
-      const { data } = await goitApi.post(`/contacts/${id}`, {name, number});
+      const { data } = await axios.put(`/contacts/${id}`, {name, number});
       return data
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
+
+// export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
+//   try {
+//     await axios.post("/users/logout");
+//     clearAuthHeader();
+//   } catch (error) {
+//     return thunkApi.rejectWithValue(error.message);
+//   }
+// });

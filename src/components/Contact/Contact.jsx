@@ -8,6 +8,7 @@ import ModlDel from "../ModlDel/ModlDel";
 import ReactModal from "react-modal";
 
 const Contact = ({ user }) => {
+  console.log('text');
   const [isModlOpen, setIsModlOpen] = useState(false);
   const [isModlDeletOpen, setIsModlDeletOpen] = useState(false);
   const dispatch = useDispatch();

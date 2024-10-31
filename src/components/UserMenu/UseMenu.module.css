@@ -1,0 +1,16 @@
+.exbtn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0042e7;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Добавляет плавный переход */
+}
+
+.exbtn:hover {
+    background-color: #bc00ef;
+    color: rgb(194, 194, 194);
+}
